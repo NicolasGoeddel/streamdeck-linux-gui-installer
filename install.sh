@@ -2,7 +2,7 @@
 
 set -eu
 
-if [ -z "${VENV_SUFFIX}" ]; then
+if ! declare -p VENV_SUFFIX &>/dev/null; then
     source .common.sh
 fi
 
