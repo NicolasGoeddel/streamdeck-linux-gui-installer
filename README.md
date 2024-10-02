@@ -6,8 +6,9 @@ It installs:
 - the udev rules
 
 # Installation
-Just run `./setup.sh`.
-If the udev rules are not yet installed on your system you will be prompted to enter your `sudo` password.
+Just run `./install.sh`.
+Since you need a few dependencies installed you will be prompted to enter your `sudo` password.
+If the udev rules are not yet installed on your system you will also be prompted to enter your `sudo` password.
 
 # Executing
 You can skip the setup and just execute `./run.sh` which runs `setup.sh` implicitely.
