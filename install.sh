@@ -12,12 +12,16 @@ python3 -m venv --prompt=stream-deck ".venv${VENV_SUFFIX}"
 # Step 3: Activate virtual environment
 source ".venv${VENV_SUFFIX}/bin/activate"
 
-python_package_entrypoint="$(python -c "import ${PYTHON_PACKAGE_NAME} as _; print(_.__file__)")"
-python_package_path="$(dirname "${python_package_entrypoint}")"
 venv_path_absolute="$(realpath ".venv${VENV_SUFFIX}")"
 
-# Step 4: Install requirements
+# Step 4a: Install dependecies
+sudo apt install libhidapi-libusb0 python3-pip
+
+# Step 4b: Install requirements (the app itself)
 pip install -r requirements.txt
+
+python_package_entrypoint="$(python -c "import ${PYTHON_PACKAGE_NAME} as _; print(_.__file__)")"
+python_package_path="$(dirname "${python_package_entrypoint}")"
 
 # Step 5: Install menu item
 mkdir -p "${HOME}/.local/share/applications"
@@ -26,7 +30,7 @@ tee "${HOME}/.local/share/applications/${APP_MENU_FILENAME}.desktop" > /dev/null
 Version=X
 Comment=${APP_MENU_COMMENT}
 Terminal=false
-Name=${APP_TITLE}
+Name=${APP_TITLE}./in
 Type=Application
 Categories=Development;
 StartupNotify=true
