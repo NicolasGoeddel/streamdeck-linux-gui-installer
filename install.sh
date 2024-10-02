@@ -15,7 +15,7 @@ source ".venv${VENV_SUFFIX}/bin/activate"
 venv_path_absolute="$(realpath ".venv${VENV_SUFFIX}")"
 
 # Step 4a: Install dependecies
-sudo apt install libhidapi-libusb0 python3-pip
+sudo apt install libhidapi-libusb0 python3-pip '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev
 
 # Step 4b: Install requirements (the app itself)
 pip install -r requirements.txt
